@@ -26,7 +26,7 @@ void SLL_printer(Node* head); 			// Crints the list in a fancy way
 
 Time and space complexity
 ---------------------------------------------------------
-Function		| Time		| Space		
+Function		| Time		| Space		|
 ---------------------------------------------------------
 SLL_insertAtFront	|	O(n)	|	O(1)	|
 SLL_insertAtBack	|	O(1)	|	O(1)	|
