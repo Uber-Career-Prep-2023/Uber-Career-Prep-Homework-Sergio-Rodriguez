@@ -8,17 +8,16 @@ struct Node {
     int data;
     struct Node* next;
 };
-
 Node* SLL_insertAtFront(Node* head, int val); 	// Creates new Node with data val at front; returns new head
 void SLL_insertAtBack(Node* head, int val); 	// Creates new Node with data val at end
 void SLL_insertAfter(Node* loc, int val); 	// Creates new Node with data val after Node loc
-Node* SLL_deleteFront(Node* head); 		// Cemoves first Node; returns new head
-void SLL_deleteBack(Node* head); 		// Cemoves last Node
-Node* SLL_deleteNode(Node* head, Node* loc); 	// Celetes Node loc; returns head
-size_t SLL_length(Node* head); 			// Ceturns length of the list
-Node* SLL_reverseIterative(Node* head); 	// Ceverses the linked list iteratively
-Node* SLL_reverseRecursive(Node* head); 	// Ceverses the linked list recursively
-void SLL_printer(Node* head); 			// Crints the list in a fancy way
+Node* SLL_deleteFront(Node* head); 		// Removes first Node; returns new heade
+void SLL_deleteBack(Node* head); 		// Removes last Node
+Node* SLL_deleteNode(Node* head, Node* loc); 	// Deletes Node loc; returns head
+size_t SLL_length(Node* head); 			// Returns length of the list
+Node* SLL_reverseIterative(Node* head); 	// Reverses the linked list iteratively
+Node* SLL_reverseRecursive(Node* head); 	// Reverses the linked list recursively
+void SLL_printer(Node* head); 			// Prints the list in a fancy way
 
 #endif
 
