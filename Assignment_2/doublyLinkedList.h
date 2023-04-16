@@ -1,21 +1,43 @@
-#ifndef BINARY_SEARCH_TREE
-#define BINARY_SEARCH_TREE
+#ifndef DOUBLY_LINKED_LIST_H
+#define DOUBLY_LINKED_LIST_H
 
-#include <stdbool.h>
+#include <stdlib.h>
 
 typedef struct Node Node;
 struct Node {
     int data;
-    struct Node* left;
-    struct Node* right;
+    struct Node* next;
+    struct Node* prev;
 };
 
-Node* BST_init(int val);			// initializes a new root with value val
-bool BST_contains(Node* root, int val); 	// returns a boolean indicating whether val is present in the BST
-Node* BST_insert(Node* root, int val); 		// creates a new Node with data val in the appropriate location
-Node*  BST_delete(Node* root, int val); 	// deletes the Node with data val, if it exists
-int BST_min(Node* root);			// returns the minimum value in the BST
-int BST_max(Node* root);			// returns the maximum value in the BST
-void BST_printer(Node* root);
+Node* DLL_insertAtFront(Node* head, int val); 	// Creates new Node with data val at front; returns new head
+void DLL_insertAtBack(Node* head, int val); 	// Creates new Node with data val at end
+void DLL_insertAfter(Node* loc, int val); 	// Creates new Node with data val after Node loc
+Node* DLL_deleteFront(Node* head); 		// Removes first Node; returns new heade
+void DLL_deleteBack(Node* head); 		// Removes last Node
+Node* DLL_deleteNode(Node* head, Node* loc); 	// Deletes Node loc; returns head
+size_t DLL_length(Node* head); 			// Returns length of the list
+Node* DLL_reverseIterative(Node* head); 	// Reverses the linked list iteratively
+Node* DLL_reverseRecursive(Node* head); 	// Reverses the linked list recursively
+void DLL_printer(Node* head); 			// Prints the list in a fancy way
 
 #endif
+
+/*
+
+Time and space complexity
+---------------------------------------------------------
+Function		| Time		| Space		|
+---------------------------------------------------------
+DLL_insertAtFront	|	O(n)	|	O(1)	|
+DLL_insertAtBack	|	O(1)	|	O(1)	|
+DLL_insertAfter		|	O(1)	|	O(1)	|
+DLL_deleteFront		|	O(1)	|	O(1)	|
+DLL_deleteBack		|	O(n)	|	O(1)	|
+DLL_deleteNode		|	O(n)	|	O(1)	|
+DLL_length		|	O(n)	|	O(1)	|
+DLL_reverseIterative	|	O(n)	|	O(1)	|
+DLL_reverseRecursive	|		|		|
+---------------------------------------------------------
+
+*/ 
