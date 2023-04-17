@@ -15,7 +15,7 @@ Node* BST_insert(Node* root, int val); 		// creates a new Node with data val in 
 Node*  BST_delete(Node* root, int val); 	// deletes the Node with data val, if it exists
 int BST_min(Node* root);			// returns the minimum value in the BST
 int BST_max(Node* root);			// returns the maximum value in the BST
-void BST_printer(Node* root);
+void BST_printer(Node* root);			
 
 #endif
 
