@@ -3,15 +3,6 @@
 #include <stdio.h>
 #include "binarySearchTree.h"
 
-Node* BST_init(int val)
-{
-	Node* newRoot = malloc(sizeof(Node));
-	newRoot->data = val;
-	newRoot->left = NULL;
-	newRoot->right = NULL;
-	return newRoot;
-}
-
 bool BST_contains(Node* root, int val)
 {
 	if(root == NULL){
@@ -28,7 +19,7 @@ bool BST_contains(Node* root, int val)
 Node* BST_insert(Node* root, int val)
 {
 	if(root == NULL){
-		Node* newNode = malloc(sizeof(Node));
+		Node* newNode = (Node*)malloc(sizeof(Node));
 		newNode->data = val;
 		newNode->left = NULL;
 		newNode->right = NULL;
@@ -38,6 +29,7 @@ Node* BST_insert(Node* root, int val)
 	} else {
 		root->right = BST_insert(root->right, val);
 	}
+	return root;
 }
 
 Node* BST_delete(Node* root, int val)
@@ -76,4 +68,14 @@ int BST_max(Node* root)
 		currentNode = currentNode->right;
 	}
 	return currentNode->data;
+}
+
+void BST_printer(Node* root)
+{
+	if (root == NULL){
+		return;
+	}
+    	BST_printer(root->left);
+   	printf("%d ", root->data);
+    	BST_printer(root->right);
 }

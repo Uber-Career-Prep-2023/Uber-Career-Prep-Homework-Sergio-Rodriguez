@@ -4,7 +4,7 @@
 
 Node* DLL_insertAtFront(Node* head, int val)
 {
-	Node* newNode = malloc(sizeof(Node));
+	Node* newNode = (Node*)malloc(sizeof(Node));
 	newNode->next = head;
 	newNode->data = val;
 	newNode->prev = NULL;
@@ -13,7 +13,7 @@ Node* DLL_insertAtFront(Node* head, int val)
 
 void DLL_insertAtBack(Node* head, int val)
 {
-	Node* newNode = malloc(sizeof(Node));
+	Node* newNode = (Node*)malloc(sizeof(Node));
 	Node* currentNode = head;
 	while(currentNode->next != NULL){
 		currentNode = currentNode->next;
@@ -26,7 +26,7 @@ void DLL_insertAtBack(Node* head, int val)
 
 void DLL_insertAfter(Node* loc, int val)
 {
-	Node* newNode = malloc(sizeof(Node));
+	Node* newNode = (Node*)malloc(sizeof(Node));
 	newNode->next = loc->next;
 	if(loc->next != NULL){
 		loc->next->prev = newNode;

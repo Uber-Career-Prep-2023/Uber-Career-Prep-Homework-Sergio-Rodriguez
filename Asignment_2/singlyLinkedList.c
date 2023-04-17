@@ -4,7 +4,7 @@
 
 Node* SLL_insertAtFront(Node* head, int val)
 {
-	Node* newNode = malloc(sizeof(Node));
+	Node* newNode = (Node*)malloc(sizeof(Node));
 	newNode->next = head;
 	newNode->data = val;
 	return newNode;
@@ -12,7 +12,7 @@ Node* SLL_insertAtFront(Node* head, int val)
 
 void SLL_insertAtBack(Node* head, int val)
 {
-	Node* newNode = malloc(sizeof(Node));
+	Node* newNode = (Node*)malloc(sizeof(Node));
 	Node* currentNode = head;
 	while(currentNode->next != NULL){
 		currentNode = currentNode->next;
@@ -24,7 +24,7 @@ void SLL_insertAtBack(Node* head, int val)
 
 void SLL_insertAfter(Node* loc, int val)
 {
-	Node* newNode = malloc(sizeof(Node));
+	Node* newNode = (Node*)malloc(sizeof(Node));
 	newNode->next = loc->next;
 	loc->next = newNode;
 	newNode->data = val;
