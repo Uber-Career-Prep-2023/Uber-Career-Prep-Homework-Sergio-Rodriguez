@@ -4,7 +4,7 @@ of the vowels in the string.
  
 Technique used: Two pointers.
 Time complexity: O(n)
-Space complexity: O(n)
+Space complexity: O(1)
 
 */
 

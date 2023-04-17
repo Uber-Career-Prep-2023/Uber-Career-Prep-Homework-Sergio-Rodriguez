@@ -13,12 +13,9 @@ Space complexity: O(n)
 using namespace std;
 
 int twoSum(vector <int> &vec, int k){
- // Look for the frecuency in the array of the number that sums up to k for a given element with a map.
     unordered_map<int, int> elem;
     int count = 0;
     for (int i = 0; i < vec.size(); i++) {
-      // If it's already in the map sum its frecuency to the global count, this will take care of the cases where the same
-      // element is part of two different pairs.
         if (elem.find(k - vec[i]) != elem.end()) {
             count += elem[k - vec[i]];
         }

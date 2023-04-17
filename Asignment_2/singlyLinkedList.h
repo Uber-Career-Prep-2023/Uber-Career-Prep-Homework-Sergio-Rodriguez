@@ -8,6 +8,7 @@ struct Node {
     int data;
     struct Node* next;
 };
+
 Node* SLL_insertAtFront(Node* head, int val); 	// Creates new Node with data val at front; returns new head
 void SLL_insertAtBack(Node* head, int val); 	// Creates new Node with data val at end
 void SLL_insertAfter(Node* loc, int val); 	// Creates new Node with data val after Node loc

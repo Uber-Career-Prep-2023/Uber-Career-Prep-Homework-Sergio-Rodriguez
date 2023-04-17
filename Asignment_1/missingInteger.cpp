@@ -4,7 +4,7 @@ integers in the range 1-n, find the missing integer.
  
 Technique used: Two pointers.
 Time complexity: O(n) (Maybe O(log n) with binary search, but not sure about how to implement it)
-Space complexity: O(n)
+Space complexity: O(1)
 
 */
 

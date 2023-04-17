@@ -5,7 +5,7 @@ mean of a subarray of size k.
 
 Technique used: Linear traversing.
 Time complexity: O(n)
-Space complexity: O(n)
+Space complexity: O(1)
 
 */
 

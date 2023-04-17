@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include "singlyLinkedList.h"
 
-
 Node* SLL_insertAtFront(Node* head, int val)
 {
 	Node* newNode = malloc(sizeof(Node));
@@ -76,7 +75,7 @@ size_t SLL_length(Node* head)
 	do{
 		currentNode = currentNode->next;
 		length++;
-	} while(currentNode->next != NULL);
+	}while(currentNode->next != NULL);
 	return length;
 }
 
@@ -104,7 +103,7 @@ void SLL_printer(Node* head)
 {
 	Node* currentNode = head;
 	while(currentNode != NULL){
-		printf("[%d]->", currentNode->data);
+		printf("%d->", currentNode->data);
 		currentNode = currentNode->next;
 	}
 	printf("NULL\n");

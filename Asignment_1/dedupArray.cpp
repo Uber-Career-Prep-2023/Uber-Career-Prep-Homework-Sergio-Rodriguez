@@ -7,7 +7,7 @@ right-hand side should be padded with -1s.
  
 Technique used: Two pointers.
 Time complexity: O(n)
-Space complexity: O(n)
+Space complexity: O(1)
 
 */
 
