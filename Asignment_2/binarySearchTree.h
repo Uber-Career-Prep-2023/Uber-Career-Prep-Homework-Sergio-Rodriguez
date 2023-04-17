@@ -5,9 +5,9 @@
 
 typedef struct Node Node;
 struct Node {
-    int data;
-    struct Node* left;
-    struct Node* right;
+	int data;
+	struct Node* left;
+	struct Node* right;
 };
 
 Node* BST_init(int val);			// initializes a new root with value val
