@@ -5,9 +5,9 @@
 
 bool BST_contains(Node* root, int val)
 {
-	if(root == NULL){
-		return false;
-	} else if(root->data == val){
+	if (root == NULL){
+		return root;
+	} else if (root->data == val){
 		return true;
 	} else if (root->data > val){
 		return BST_contains(root->left, val);
@@ -18,8 +18,11 @@ bool BST_contains(Node* root, int val)
 
 Node* BST_insert(Node* root, int val)
 {
-	if(root == NULL){
-		Node* newNode = (Node*)malloc(sizeof(Node));
+	if (root == NULL){
+		Node* newNode = malloc(sizeof(*newNode));
+		if (newNode == NULL) {
+			exit(1);
+		}
 		newNode->data = val;
 		newNode->left = NULL;
 		newNode->right = NULL;
@@ -43,11 +46,12 @@ Node* BST_delete(Node* root, int val)
 		root->right = BST_delete(root->right, val);
 	} else {
 		if (root->left == NULL || root->right == NULL){
+			Node* temp = root->left ? root->left : root->right;
 			free(root);
-			return NULL;
+			return temp;
 		}
 		root->data = BST_min(root->right);
-		root->right = BST_delete(root->right, BST_min(root->right));
+		root->right = BST_delete(root->right, root->data);
     	}
    	return root;
 }

@@ -8,6 +8,9 @@ Node* DLL_insertAtFront(Node* head, int val)
 	newNode->next = head;
 	newNode->data = val;
 	newNode->prev = NULL;
+	if(head != NULL){
+		head->prev = newNode;
+	}
 	return newNode;
 }
 
@@ -38,8 +41,13 @@ void DLL_insertAfter(Node* loc, int val)
 
 Node* DLL_deleteFront(Node* head)
 {
+	if(head == NULL){
+		return NULL;
+	}
 	Node* newHead = head->next;
-	newHead->prev = NULL;
+	if(newHead != NULL){
+		newHead->prev = NULL;
+	}
 	head->next = NULL;
 	free(head);
 	return newHead;
@@ -48,6 +56,9 @@ Node* DLL_deleteFront(Node* head)
 void DLL_deleteBack(Node* head)
 {
 	Node* currentNode = head;
+	if(currentNode == NULL){
+		return;
+	}
 	if(currentNode->next == NULL){
 		free(head);
 		return;
@@ -55,7 +66,6 @@ void DLL_deleteBack(Node* head)
 	while(currentNode->next->next != NULL){
 		currentNode = currentNode->next;
 	}
-	currentNode->next->next = NULL;
 	currentNode->next->prev = NULL;
 	free(currentNode->next);
 	currentNode->next = NULL;
@@ -63,12 +73,29 @@ void DLL_deleteBack(Node* head)
 
 Node* DLL_deleteNode(Node* head, Node* loc)
 {
+	if(head == NULL || loc == NULL){
+		return head;
+	}
+	if(head == loc){
+		head = head->next;
+		if(head != NULL){
+			head->prev = NULL;
+		}
+		loc->next = NULL;
+		free(loc);
+		return head;
+	}
 	Node* currentNode = head;
-	while(currentNode->next != loc){
+	while(currentNode != NULL && currentNode->next != loc){
 		currentNode = currentNode->next;
 	}
-	loc->next->prev = currentNode;
+	if(currentNode == NULL){
+		return head;
+	}
 	currentNode->next = loc->next;
+	if(loc->next != NULL){
+		loc->next->prev = currentNode;
+	}
 	loc->next = NULL;
 	loc->prev = NULL;
 	free(loc);
@@ -77,15 +104,12 @@ Node* DLL_deleteNode(Node* head, Node* loc)
 
 size_t DLL_length(Node* head)
 {
-	size_t length = 1;
-	if(head->next == NULL){
-		return length;
-	}
+	size_t length = 0;
 	Node* currentNode = head;
-	do{
+	while(currentNode != NULL){
 		currentNode = currentNode->next;
 		length++;
-	}while(currentNode->next != NULL);
+	}
 	return length;
 }
 
@@ -97,28 +121,32 @@ Node* DLL_reverseIterative(Node* head)
 	while (currentNode != NULL) {
 		nextNode = currentNode->next;
 		currentNode->next = prevNode;
-        	currentNode->prev = nextNode;
-        	prevNode = currentNode;
-        	currentNode = nextNode;
+		currentNode->prev = nextNode;
+		prevNode = currentNode;
+		currentNode = nextNode;
 	}
     head = prevNode;
     return head;
 }
 
-// Node* reverseRecursive(Node* head) 
-// {
-
-// }
+Node* DLL_reverseRecursive(Node* head) 
+{
+	if(head == NULL || head->next == NULL){
+		return head;
+	}
+	Node* newHead = DLL_reverseRecursive(head->next);
+	head->next->next = head;
+	head->prev = head->next;
+	head->next = NULL;
+	return newHead;
+}
 
 void DLL_printer(Node* head)
 {
 	Node* currentNode = head;
-	printf("NULL<->");
 	while(currentNode != NULL){
-		printf("%d<->", currentNode->data);
+		printf("%d ", currentNode->data);
 		currentNode = currentNode->next;
 	}
-	printf("NULL\n");
-	printf("Size: %zu\n\n", DLL_length(head));
 }
 
