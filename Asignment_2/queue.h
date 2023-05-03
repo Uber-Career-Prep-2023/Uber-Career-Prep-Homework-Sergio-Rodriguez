@@ -18,21 +18,4 @@ bool queue_isEmpty(Queue* queue); 		// returns a boolean indicating whether the 
 void queue_print(Queue* queue);
 #endif
 
-
-/*
-Time and space complexity
----------------------------------------------------------
-Function		| Time		| Space		|
----------------------------------------------------------
-SLL_insertAtFront	|	O(n)	|	O(1)	|
-SLL_insertAtBack	|	O(1)	|	O(1)	|
-SLL_insertAfter		|	O(1)	|	O(1)	|
-SLL_deleteFront		|	O(1)	|	O(1)	|
-SLL_deleteBack		|	O(n)	|	O(1)	|
-SLL_deleteNode		|	O(n)	|	O(1)	|
-SLL_length		|	O(n)	|	O(1)	|
-SLL_reverseIterative	|	O(n)	|	O(1)	|
-SLL_reverseRecursive	|	O(n)	|	O(n)**	|
----------------------------------------------------------
-** Considering that call stack increases linearly for every node
-*/
+/*Time and space complexity are given by underlying DLL functions*/

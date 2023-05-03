@@ -1,5 +1,5 @@
-#ifndef BINARY_SEARCH_TREE
-#define BINARY_SEARCH_TREE
+#ifndef BINARY_SEARCH_TREE_H
+#define BINARY_SEARCH_TREE_H
 
 #include <stdbool.h>
 
