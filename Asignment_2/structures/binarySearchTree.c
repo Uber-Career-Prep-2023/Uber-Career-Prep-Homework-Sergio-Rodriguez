@@ -19,7 +19,7 @@ bool BST_contains(Node* root, int val)
 Node* BST_insert(Node* root, int val)
 {
 	if (root == NULL){
-		Node* newNode = malloc(sizeof(*newNode));
+		Node* newNode = malloc(sizeof(Node));
 		if (newNode == NULL) {
 			exit(1);
 		}

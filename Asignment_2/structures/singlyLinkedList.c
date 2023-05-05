@@ -72,20 +72,12 @@ void SLL_deleteBack(Node* head)
 
 Node* SLL_deleteNode(Node* head, Node* loc)
 {
-    if (head == NULL) {
+    if (head == NULL || loc == NULL) {
         return NULL;
-    }
-    if (head == loc) {
-        Node* newHead = head->next;
-        free(head);
-        return newHead;
     }
     Node* currentNode = head;
     while(currentNode->next != loc){
         currentNode = currentNode->next;
-        if (currentNode == NULL) {
-            return head;
-        }
     }
     currentNode->next = loc->next;
     free(loc);

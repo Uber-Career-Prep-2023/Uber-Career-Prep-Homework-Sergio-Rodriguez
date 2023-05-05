@@ -1,6 +1,10 @@
 #ifndef SINGLY_LINKED_LIST_H
 #define SINGLY_LINKED_LIST_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stdlib.h>
 
 typedef struct Node Node;
@@ -19,6 +23,10 @@ size_t SLL_length(Node* head); 			// Returns length of the list
 Node* SLL_reverseIterative(Node* head); 	// Reverses the linked list iteratively
 Node* SLL_reverseRecursive(Node* head); 	// Reverses the linked list recursively
 void SLL_printer(Node* head); 			// Prints the list in a fancy way
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 
