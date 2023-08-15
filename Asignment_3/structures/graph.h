@@ -18,10 +18,10 @@ Time and space complexity
 -------------------------------------------------------------------------
 Function						| Time				| Space				|
 -------------------------------------------------------------------------
-Graph_adjacencySet				|	O(log n)*		|		O(1)**		|
-Graph_bfs						|	O(log n)*		|		O(1)**		|
-Graph_dfs						|	O(log n)*		|		O(1)**		|
-Graph_topologicalSort			|	O(log n)*		|		O(1)**		|
+Graph_adjacencySet				|	O(n)		    |		O(n)		|
+Graph_bfs						|	O(n)		    |		O(n)		|
+Graph_dfs						|	O(n)	    	|		O(n)		|
+Graph_topologicalSort			|	O(n)	    	|		O(1)		|
 -------------------------------------------------------------------------
 
 */

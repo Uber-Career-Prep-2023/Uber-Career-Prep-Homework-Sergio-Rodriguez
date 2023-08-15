@@ -1,43 +1,53 @@
-/* QQuestion 2: ReverseVowels
-Given a string, reverse the order 
-of the vowels in the string.
+/* 
+Question 2: ReverseVowels
+Given a string, reverse the order of the vowels in the string.
  
-Technique used: Two pointers.
+Technique used: Forward/backward two-pointer.
 Time complexity: O(n)
 Space complexity: O(1)
-
 */
 
 #include <iostream>
 #include <string>
 #include <set>
+#include <vector>
 #include <algorithm>
 
 using namespace std;
 
-// Function to determine if a character is a vowel
 bool isVowel(char c){
-    set <char> vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+    set <char> vowels = {'A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u'};
     return vowels.count(c);
 }
 
 string reverseVowels(string s){
-    int i = 0;
-    int j = s.size()-1;
-    // Checking if the i th and size-j th terms are vocals and swap them if so.
-    while (i <= j){
-        if(isVowel(s[i]) && isVowel(s[j])){
-            swap(s[i], s[j]);
+    size_t fwd = 0, bwd = s.size()-1;
+    while(fwd < bwd){
+        while(!isVowel(s[fwd]) && fwd < bwd){
+            fwd++;
         }
-        i++;
-        j--;
+        while(!isVowel(s[bwd]) && fwd < bwd){
+            bwd--;
+        }
+        swap(s[fwd], s[bwd]);
+        fwd++;
+        bwd--;
     }
     return s;
 }
 
 int main(){
-  string test = "aeiou";
-  cout << reverseVowels(test) << endl;
-}
 
-// Time used: 31 min.
+    vector<string> tests = {    // Expected output:
+        "Uber Career Prep",     // eber Ceraer PrUp
+        "xyz",                  // xyz 
+        "flamingo",             // flominga
+        "aeiou"                 // uoiea
+    };
+
+    for(auto test : tests){
+        cout << reverseVowels(test) << endl;
+    }
+
+    return 0;
+}

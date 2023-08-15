@@ -1,12 +1,10 @@
-/* Question 1: MaxMeanSubArray
-Given an array of integers and 
-an integer, k, find the maximum 
-mean of a subarray of size k. 
+/* 
+Question 1: MaxMeanSubArray
+Given an array of integers and an integer, k, find the maximum mean of a subarray of size k. 
 
-Technique used: Linear traversing.
+Technique used: Fixed-size sliding window.
 Time complexity: O(n)
 Space complexity: O(1)
-
 */
 
 #include <iostream>
@@ -14,32 +12,33 @@ Space complexity: O(1)
 using namespace std;
 
 float maxMeanSubArray(vector <int> &vec, int k){
-    float maxMean = 0;
-    int maxSum = 0;
-    // if k is greater than the size of the array return 0
-    if(vec.size() < k){
-      return 0;
-    }
-    // Calculate the sum of the first subarray of size k
-    for(int i = 0; i < k; i++){
-      maxSum += vec[i];
-    }
-    // Calculate the sum of the subsecuent subarrays by substracting
-    // the first element of the prior subarray and adding the next 
-    // element in the array
-    for(int j = 1; j < vec.size()-k-1; j++){
-      if(maxSum < maxSum - vec[j-1] + vec[j+(k-1)]){
-        maxSum = maxSum - vec[j-1] + vec[j+(k-1)];
-      }
-    }
-    maxMean = (float)maxSum/k;
-    return maxMean;
+    if(k == 0 || k > vec.size()) return 0;
+	float sum = 0, maxSum;
+	for(int i = 0; i < k; i++){
+		sum += vec[i];
+	}
+	maxSum = sum;
+	for(int i = 1; i < vec.size()-k+1; i++){
+		sum -= vec[i-1];
+		sum += vec[i+k-1];
+		maxSum = max(maxSum, sum);
+	}
+	return maxSum/k;
 }
 
 int main(){
-  vector <int> test = {4, 5, -3, 2, 6, 1};
-  int k = 2;
-  cout << maxMeanSubArray(test, k) << endl;
-}
 
-// Time used: 19 min.
+	vector<pair<vector<int>, int>> tests = { 			// Expected output:
+		{{4, 5, -3, 2, 6, 1}, 2}, 						// 4.5
+		{{4, 5, -3, 2, 6, 1}, 3}, 						// 3
+		{{1, 1, 1, 1, -1, -1, 2, -1, -1}, 3}, 			// 1
+		{{1, 1, 1, 1, -1, -1, 2, -1, -1, 6}, 5}, 		// 1
+	};
+
+	for(auto test : tests){
+		cout << maxMeanSubArray(test.first, test.second) << endl;
+	}
+
+	return 0;
+
+}

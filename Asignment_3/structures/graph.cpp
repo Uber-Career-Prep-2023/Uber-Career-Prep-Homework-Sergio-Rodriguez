@@ -22,8 +22,7 @@ bool Graph_dfsUtil(int target, std::map<int, std::set<int>> &graph, std::unorder
 		if(t_order.front() == target){
 			return true;
 		}
-		Graph_dfsUtil(t_order.front(), &graph, &visited)
-		t_order.pop();
+		Graph_dfsUtil(t_order.front(), graph, visited);
 	}
 	return false;
 }

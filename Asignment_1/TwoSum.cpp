@@ -1,6 +1,7 @@
 /* Question 10: TwoSum
  Given an array of integers and a target integer, k, return the number of pairs of integers 
 in the array that sum to k. In each pair, the two items must be distinct elements (come from different indices in the array).
+
 Technique used: Hashing
 Time complexity: O(n)
 Space complexity: O(n)
@@ -29,4 +30,3 @@ int main(){
   int k = 6;
   cout << twoSum(test, k) << endl;
 }
-// Time used: 38 min
